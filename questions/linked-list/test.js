@@ -4,40 +4,37 @@ const should = chai.should();
 describe('Linked-lists', () => {
 
   describe('Methods', () => {
+    let linkedList;
+    beforeEach(() => {
+      linkedList = new LinkedList;
+    })
 
     it('class exists', () => {
-      const linkedList = new LinkedList();
       should.exist(linkedList);
     });
 
     it('should have a head', () => {
-      const linkedList = new LinkedList();
       should.exist(linkedList.head);
     });
 
     it('should have a tail', () => {
-      const linkedList = new LinkedList();
       should.exist(linkedList.tail);
     });
 
     it('should add nodes to tail', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       assert(linkedList.tail === 23, 'expected tail to equal 23');
     });
 
     it('should remove and re-assign head', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.removeHead();
       assert(linkedList.head === 23, 'expected head to equal 23');
-
     });
 
     it('should have contains method that returns boolean', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.addToTail(33);
@@ -48,12 +45,11 @@ describe('Linked-lists', () => {
     });
 
     it('should sort linked list', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.addToTail(33);
       linkedList.addToTail(4);
-      linkedlist.sort();
+      linkedList.sort();
 
       const linkedListSortedValues = [];
       const sortedValues = [4, 7, 23, 33];
@@ -62,7 +58,6 @@ describe('Linked-lists', () => {
     });
 
     it('should remove duplicates from an unsorted linked list', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.addToTail(33);
@@ -76,7 +71,6 @@ describe('Linked-lists', () => {
     });
 
     it('should return nth to last node', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.addToTail(33);
@@ -85,7 +79,6 @@ describe('Linked-lists', () => {
     });
 
     it('should delete middle node', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.addToTail(33);
@@ -100,7 +93,6 @@ describe('Linked-lists', () => {
     });
 
     it('should partition the linked list based on a passed in value', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(10);
       linkedList.addToTail(6);
       linkedList.addToTail(8);
@@ -111,12 +103,11 @@ describe('Linked-lists', () => {
       const partition = [];
       const expectation = [5, 4, 6, 10, 8]
 
-      asser(partition == expectation, 'expected partition of values to be [5, 4, 6, 10, 8]')
+      assert(partition == expectation, 'expected partition of values to be [5, 4, 6, 10, 8]')
 
     });
 
     it('should check if a linked list is a palindrome', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(0);
       linkedList.addToTail(1);
       linkedList.addToTail(2);
@@ -127,7 +118,6 @@ describe('Linked-lists', () => {
     });
 
     it('should determine if a linked list is a circular linked list(corrupt)', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.addToTail(33);
@@ -138,7 +128,6 @@ describe('Linked-lists', () => {
     });
 
     it('should return node that begins the loop, if linked list is corrupt', () => {
-      const linkedList = new LinkedList();
       linkedList.addToTail(7);
       linkedList.addToTail(23);
       linkedList.addToTail(33);
